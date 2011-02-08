@@ -1,5 +1,5 @@
 package Mason::Plugin::PSGIHandler::Request;
-use Mason::Plugin::PSGIHandler::PlackResponse;
+use Mason::Plack::Response;
 use Mason::PluginRole;
 use Try::Tiny;
 
@@ -7,7 +7,7 @@ has 'req' => ( required => 1, isa => 'Object' );
 has 'res' => ( lazy_build => 1 );
 
 method _build_res () {
-    return Mason::Plugin::PSGIHandler::PlackResponse->new();
+    return Mason::Plack::Response->new();
 }
 
 around 'run' => sub {

@@ -91,20 +91,19 @@ $m->request_args >>. e.g.
 
 =head2 Plack request object
 
-A L<Mason::Plugin::PSGIHandler::PlackRequest> is constructed from the plack
-environment and made available in C<< $m->req >>. This is a thin subclass of
-L<Plack::Request> and provides information such as the URL and incoming HTTP
-headers. e.g.
+A L<Mason::Plack::Request> is constructed from the plack environment and made
+available in C<< $m->req >>. This is a thin subclass of L<Plack::Request> and
+provides information such as the URL and incoming HTTP headers. e.g.
 
     my $headers = $m->req->headers;
     my $cookie = $m->req->cookies->{'foo'};
 
 =head2 Plack response object
 
-An empty L<Mason::Plugin::PSGIHandler::PlackResponse> is constructed and made
-available in C<< $m->res >>. Your Mason components are responsible for setting
-the status and headers, by calling C<< $m->res->status >> and C<<
-$m->res->headers >> or utility methods that do so. e.g.
+An empty L<Mason::Plack::Response> is constructed and made available in C<<
+$m->res >>. Your Mason components are responsible for setting the status and
+headers, by calling C<< $m->res->status >> and C<< $m->res->headers >> or
+utility methods that do so. e.g.
 
     $m->res->content_type('text/plain');
     $m->res->cookies->{foo} = { value => 123 };
@@ -139,11 +138,11 @@ above, and returns a standard PSGI response array.
 
 =item req ()
 
-A reference to the L<Mason::Plugin::PSGIHandler::PlackRequest>.
+A reference to the L<Mason::Plack::Request>.
 
 =item res ()
 
-A reference to the L<Mason::Plugin::PSGIHandler::PlackResponse>.
+A reference to the L<Mason::Plack::Response>.
 
 =item redirect (url[, status])
 
