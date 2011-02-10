@@ -113,6 +113,7 @@ sub test_abort : Tests(8) {
         src  => '
 will not be printed
 % $m->redirect("http://www.google.com/");
+will also not be printed
 ',
         expect_content => ' ',
         expect_code    => 302,

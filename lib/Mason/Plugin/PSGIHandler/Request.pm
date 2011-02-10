@@ -62,7 +62,7 @@ override 'catch_abort' => sub {
     return $retval;
 };
 
-override 'abort' => sub {
+before 'abort' => sub {
     my ( $self, $retval ) = @_;
     $self->res->status($retval) if defined($retval);
 };
