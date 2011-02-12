@@ -156,6 +156,14 @@ is equivalent to
     $m->res->redirect("http://somesite.com", 302);
     $m->clear_and_abort();
 
+=item not_found ()
+
+Sets the status to 404, then clears the Mason buffer and aborts the request.
+Equivalent to
+
+    $m->res->status(404);
+    $m->clear_and_abort();
+
 =item abort (status)
 
 =item clear_and_abort (status)

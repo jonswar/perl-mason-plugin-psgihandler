@@ -72,4 +72,9 @@ method redirect () {
     $self->clear_and_abort();
 }
 
+method not_found () {
+    $self->res->status(404);
+    $self->clear_and_abort();
+}
+
 1;
