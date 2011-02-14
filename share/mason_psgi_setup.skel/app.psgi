@@ -3,6 +3,7 @@ use lib qw(/Users/swartz/git/mason.git/lib);
 use Cwd qw(realpath);
 use File::Basename;
 use Mason;
+use Plack::Builder;
 use YAML qw(LoadFile);
 use warnings;
 use strict;
@@ -20,8 +21,12 @@ my $interp = Mason->new(
     %$params
 );
 
-# Return PSGI handler
-my $handler = sub {
+# PSGI app
+my $app = sub {
     my $env = shift;
     $interp->handle_psgi($env);
+};
+builder {
+    # Include PSGI middleware here
+    $app;
 };
