@@ -4,13 +4,20 @@ with 'Mason::Plugin';
 
 1;
 
-# ABSTRACT: PSGI handler for Mason
 __END__
+
+=head1 NAME
+
+Mason::Plugin::PSGIHandler - PSGI handler for Mason
 
 =head1 SYNOPSIS
 
+    # Quick start:
+    mason_psgi_setup myapp
+
     # app.psgi
     use Mason;
+    use Plack::Builder;
     my $interp = Mason->new(
          plugins => ['PSGIHandler', ...],
          comp_root => '/path/to/comp_root/',
@@ -19,6 +26,10 @@ __END__
     my $app = sub {
         my $env = shift;
         $interp->handle_psgi($env);
+    };
+    builder {
+        # Include PSGI middleware here
+        $app;
     };
 
 =head1 DESCRIPTION

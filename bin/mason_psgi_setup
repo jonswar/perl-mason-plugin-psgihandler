@@ -25,6 +25,7 @@ my @paths = $interp->all_paths()
 foreach my $path (@paths) {
     my $output = $interp->run($path)->output;
     my $dest   = $dir . $path;
+    print "writing $dest\n";
     make_path( dirname($dest), { mode => 0775 } );
     write_file( $dest, $output );
 }

@@ -11,6 +11,7 @@ sub new {
 sub _frame_filter {
     my $info = shift;
     my ( $pkg, $file, $line, $method ) = @{ $info->{caller} };
+    return 1;
     return $pkg !~ /^(Moose|Mason|Class::MOP)/;
 }
 

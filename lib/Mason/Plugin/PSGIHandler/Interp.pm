@@ -5,8 +5,9 @@ use Try::Tiny;
 use Mason::Plugin::PSGIHandler::Extra::StackTrace;
 
 method handle_psgi ($env) {
-    local $Plack::Middleware::StackTrace::StackTraceClass =
-      'Mason::Plugin::PSGIHandler::Extra::StackTrace';
+
+    #    local $Plack::Middleware::StackTrace::StackTraceClass =
+    #      'Mason::Plugin::PSGIHandler::Extra::StackTrace';
     my $req      = Mason::Plack::Request->new($env);
     my $response = try {
         $self->run( { req => $req }, $self->psgi_comp_path($req), $self->psgi_parameters($req) )
