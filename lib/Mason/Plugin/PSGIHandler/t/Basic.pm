@@ -91,7 +91,7 @@ b = <% $.b %>
 c = <% join(",", @{$.c}) %>
 d = <% join(",", @{$.d}) %>
 
-% my $args = $.cmeta->args;
+% my $args = $.args;
 <% Mason::Util::dump_one_line($args) %>
 ',
         expect_content => <<EOF,
