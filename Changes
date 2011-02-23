@@ -4,6 +4,8 @@ Revision history for Mason-Plugin-PSGIHandler
 
 0.02  Feb 16, 2011
 
+- Fix reference to cmeta->args
+
 0.01  Feb 16, 2011
 
 - Initial version
