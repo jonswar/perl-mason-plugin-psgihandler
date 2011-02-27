@@ -2,7 +2,7 @@ Revision history for Mason-Plugin-PSGIHandler
 
 ** denotes an incompatible change
 
-0.03  Feb 24, 2011
+0.03  Feb 27, 2011
 
 - Depend on File::Path, and use mkpath rather than make_path for better compatibility (Tomohiro Hosaka)
 
