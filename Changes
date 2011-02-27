@@ -4,6 +4,8 @@ Revision history for Mason-Plugin-PSGIHandler
 
 0.03  Feb 24, 2011
 
+- Depend on File::Path, and use mkpath rather than make_path for better compatibility (Tomohiro Hosaka)
+
 0.02  Feb 24, 2011
 
 - Fix reference to cmeta->args

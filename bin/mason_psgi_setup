@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use Cwd qw(realpath);
 use File::Basename;
-use File::Path qw(make_path);
+use File::Path qw(mkpath);
 use File::ShareDir;
 use Getopt::Long;
 use Mason;
@@ -26,10 +26,10 @@ foreach my $path (@paths) {
     my $output = $interp->run($path)->output;
     my $dest   = $dir . $path;
     print "writing $dest\n";
-    make_path( dirname($dest), { mode => 0775 } );
+    mkpath( dirname($dest), 0, 0775 );
     write_file( $dest, $output );
 }
-make_path("$dir/data");
+mkpath( "$dir/data", 0, 0775 );
 print "Run\n\n    cd $dir; plackup -r\n\nto start your server.\n";
 
 __END__
