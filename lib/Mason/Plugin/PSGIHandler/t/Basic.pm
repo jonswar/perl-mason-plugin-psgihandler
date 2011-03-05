@@ -11,7 +11,7 @@ sub test_psgi_comp {
     my $interp = $self->interp;
     my $app    = sub { my $env = shift; $interp->handle_psgi($env) };
     my $path   = $params{path} or die "must pass path";
-    ( my $uri = $path ) =~ s/\.m$//;
+    ( my $uri = $path ) =~ s/\.mc$//;
     my $qs = $params{qs} || '';
     $self->add_comp( path => $path, src => $params{src} );
     test_psgi(
@@ -42,7 +42,7 @@ sub test_psgi_comp {
 sub test_basic : Tests(2) {
     my $self = shift;
     $self->test_psgi_comp(
-        path           => '/hi.m',
+        path           => '/hi.mc',
         src            => 'path = <% $m->req->path %>',
         expect_content => 'path = /hi',
         expect_code    => 200
@@ -52,7 +52,7 @@ sub test_basic : Tests(2) {
 sub test_error : Tests(2) {
     my $self = shift;
     $self->test_psgi_comp(
-        path           => '/die.m',
+        path           => '/die.mc',
         src            => '% die "bleah";',
         expect_code    => 500,
         expect_content => qr/bleah at/,
@@ -76,7 +76,7 @@ sub test_not_found : Tests(2) {
 sub test_args : Tests(2) {
     my $self = shift;
     $self->test_psgi_comp(
-        path => '/args.m',
+        path => '/args.mc',
         qs   => '?a=1&a=2&b=3&b=4&c=5&c=6&d=7&d=8',
         src  => '
 <%args>
@@ -109,7 +109,7 @@ EOF
 sub test_abort : Tests(8) {
     my $self = shift;
     $self->test_psgi_comp(
-        path => '/redirect.m',
+        path => '/redirect.mc',
         src  => '
 will not be printed
 % $m->redirect("http://www.google.com/");
@@ -120,7 +120,7 @@ will also not be printed
         expect_headers => { Location => 'http://www.google.com/' },
     );
     $self->test_psgi_comp(
-        path => '/redirect_301.m',
+        path => '/redirect_301.mc',
         src  => '
 will not be printed
 % $m->redirect("http://www.yahoo.com/", 301);
@@ -130,7 +130,7 @@ will not be printed
         expect_headers => { Location => 'http://www.yahoo.com/' },
     );
     $self->test_psgi_comp(
-        path => '/not_found.m',
+        path => '/not_found.mc',
         src  => '
 will not be printed
 % $m->clear_and_abort(404);

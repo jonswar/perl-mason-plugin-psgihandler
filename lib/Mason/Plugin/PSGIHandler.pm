@@ -76,7 +76,7 @@ If there are multiple values for a parameter, generally only the last value
 will be kept, as per L<Hash::MultiValue|Hash::MultiValue>. However, if the
 corresponding attribute in the page component is declared an C<ArrayRef>, then
 all values will be kept and passed in as an arrayref. For example, if the page
-component C</foo/bar.m> has these declarations:
+component C</foo/bar.mc> has these declarations:
 
     <%args>
     $.a
