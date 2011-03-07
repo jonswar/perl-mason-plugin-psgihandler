@@ -4,7 +4,7 @@ Revision history for Mason-Plugin-PSGIHandler
 
 0.04  Feb 27, 2011
 
-- Use new default file extensions
+- Use new Mason 2.05 default file extensions in tests
 
 0.03  Feb 27, 2011
 
