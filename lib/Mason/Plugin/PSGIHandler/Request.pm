@@ -1,6 +1,7 @@
 package Mason::Plugin::PSGIHandler::Request;
 use Mason::Plack::Response;
 use Mason::PluginRole;
+use MooseX::HasDefaults::RO;
 use Try::Tiny;
 
 has 'req' => ( required => 1, isa => 'Object' );

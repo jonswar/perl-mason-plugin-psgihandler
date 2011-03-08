@@ -4,6 +4,8 @@ Revision history for Mason-Plugin-PSGIHandler
 
 0.05  Mar 6, 2011
 
+- Use MooseX::HasDefaults, which only seems to "inherit" from base class some of the time
+
 0.04  Mar 6, 2011
 
 - Use new Mason 2.05 default file extensions in tests
