@@ -2,7 +2,7 @@ Revision history for Mason-Plugin-PSGIHandler
 
 ** denotes an incompatible change
 
-0.05  Mar 6, 2011
+0.05  Mar 7, 2011
 
 - Use MooseX::HasDefaults, which only seems to "inherit" from base class some of the time
 
