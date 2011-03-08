@@ -2,6 +2,8 @@ Revision history for Mason-Plugin-PSGIHandler
 
 ** denotes an incompatible change
 
+0.06  Mar 7, 2011
+
 0.05  Mar 7, 2011
 
 - Specify is=>'ro' explicitly; MooseX::HasDefaults only seems to transfer from base class some of the time
