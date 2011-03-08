@@ -1,11 +1,10 @@
 package Mason::Plugin::PSGIHandler::Request;
 use Mason::Plack::Response;
 use Mason::PluginRole;
-use MooseX::HasDefaults::RO;
 use Try::Tiny;
 
-has 'req' => ( required => 1, isa => 'Object' );
-has 'res' => ( lazy_build => 1 );
+has 'req' => ( is => 'ro', required => 1, isa => 'Object' );
+has 'res' => ( is => 'ro', lazy_build => 1 );
 
 method _build_res () {
     return Mason::Plack::Response->new();

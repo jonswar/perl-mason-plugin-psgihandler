@@ -4,7 +4,7 @@ Revision history for Mason-Plugin-PSGIHandler
 
 0.05  Mar 7, 2011
 
-- Use MooseX::HasDefaults explicitly
+- Specify is=>'ro' explicitly; MooseX::HasDefaults only seems to transfer from base class some of the time
 
 0.04  Mar 6, 2011
 
