@@ -2,7 +2,9 @@ Revision history for Mason-Plugin-PSGIHandler
 
 ** denotes an incompatible change
 
-0.06  Mar 7, 2011
+0.06  Mar 10, 2011
+
+- Require Plack 0.9910, tests won't pass before that
 
 0.05  Mar 7, 2011
 
